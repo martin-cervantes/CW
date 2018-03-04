@@ -1,42 +1,43 @@
 #!/bin/bash
 
-ORIGIN=$(pwd)
+echo
+echo "* * * * * * * * * * * * * * * * * * *"
+echo "* * *   StartUp Configuration   * * *"
+echo "* * * * * * * * * * * * * * * * * * *"
+echo
 
-###################################
-# StartUp Configuration
-###################################
+ORIGIN=$(pwd)
 
 gsettings set org.gnome.settings-daemon.plugins.power button-power 'suspend'
 gsettings get org.gnome.settings-daemon.plugins.power button-power
-echo "press  [ENTER]  to continue"
-read continue
 
-###################################
-# enabling Ubuntu software Repositories
-###################################
+mkdir ~/misProgramas
+sudo chown -R mcervantes:mcervantes ~/misProgramas
+
+echo
+echo "* * * * * * * * * * * * * * * * * * * * * * * * * * *"
+echo "* * *   Enabling Ubuntu Software Repositories   * * *"
+echo "* * * * * * * * * * * * * * * * * * * * * * * * * * *"
+echo
+
 #To enable main repository,
-
 sudo add-apt-repository main
 
 #To enable universe repository,
-
 sudo add-apt-repository universe
 
 #To enable multiverse repository,
-
 sudo add-apt-repository multiverse
 
 #To enable restricted repository,
-
 sudo add-apt-repository restricted
 
-###################################
-# Add repositories
-###################################
+echo
+echo "* * * * * * * * * * * * * * * * * *"
+echo "* * *   Adding Repositories   * * *"
+echo "* * * * * * * * * * * * * * * * * *"
+echo
 
-echo
-echo "* * *   Installing repositories...   * * *"
-echo
 echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 cd /opt
 sudo wget http://www.webmin.com/jcameron-key.asc
@@ -44,74 +45,65 @@ sudo apt-key add jcameron-key.asc
 echo "press  [ENTER]  to continue"
 read continue
 
-###################################
-# Update and Upgrade
-###################################
+echo
+echo "* * * * * * * * * * * * * * * * * * *"
+echo "* * *   Updating and upgrading   * * *"
+echo "* * * * * * * * * * * * * * * * * * *"
+echo
 
-echo
-echo "* * *   Updating and upgrading...   * * *"
-echo
-sudo apt update && sudo apt-get upgrade -y
+sudo apt update && sudo apt upgrade -y
 echo "press  [ENTER]  to continue"
 read continue
 
-###################################
-# Remove programs not used
-###################################
 echo
-echo "* * *   Removing programs not used...   * * *"
+echo "* * * * * * * * * * * * * * * * * * * * *"
+echo "* * *   Removing Programs Not Used   * * *"
+echo "* * * * * * * * * * * * * * * * * * * * *"
 echo
+
 sudo apt purge libreoffice* -y
 echo "press  [ENTER]  to continue"
 read continue
 
-###################################
-# Installations
-###################################
-
 echo
-echo "* * *   Installing programs...   * * *"
+echo "* * * * * * * * * * * * * * * * * * *"
+echo "* * *   Programs Installation   * * *"
+echo "* * * * * * * * * * * * * * * * * * *"
 echo
-
-mkdir ~/misProgramas
-sudo chown -R mcervantes:mcervantes ~/misProgramas
-ls -l ~/
-echo "press  [ENTER]  to continue"
-read continue
 
 ### wps-office
+echo "-> Installing WPS Office"
 sudo dpkg --install $ORIGIN/wps-office_10.1.0.5707~a21_amd64.deb
 sudo unzip $ORIGIN/es_ES.zip -d /opt/kingsoft/wps-office/office6/dicts
 echo "press  [ENTER]  to continue"
 read continue
 
 ### web tools
-echo "* * *   Installing LAMP   * * *"
+echo "-> Installing LAMP"
 sudo apt install apache2 -y
 sudo apt install mysql-server -y
 sudo apt install phpmyadmin -y
 sudo mysql_secure_installation
 sudo chown -R mcervantes:mcervantes /var/www/html
 ln -s /var/www/html ~/Desktop
-ls -l /var/www
-ls -l ~/
 echo "press  [ENTER]  to continue"
 read continue
 
-echo
-echo "* * * Webmin * * *"
-echo
+## Webmin
+echo "-> Installing Webmin"
 sudo apt install webmin -y
 echo "press  [ENTER]  to continue"
 read continue
 
-### system
+## MyApps
+echo "-> Installing MyApps"
 sudo apt install gnome-control-center gnome-online-accounts -y
 sudo apt install docky gimp gparted screenfetch -y
 echo "press  [ENTER]  to continue"
 read continue
 
 ### git
+echo "-> Installing Git"
 sudo apt install git -y
 echo
 echo "* * *   G I T   I N F O   * * *"
@@ -121,12 +113,11 @@ git config --global user.email "cervantes.martine@gmail.com"
 git --version
 git config --list
 echo
-echo "* * *   Generating a new SSH key and adding it to the ssh-agent   * * *"
+echo "* * *   SSH-key and SSH-agent   * * *"
 echo
 ssh-keygen -t rsa -b 4096 -C "cervantes.martine@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
-
 echo
 echo "* * *   R S A   K E Y   * * *"
 echo
@@ -186,20 +177,16 @@ mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.5
 echo "press  [ENTER]  to continue"
 read continue
 
-###################################
-# Cleaning
-###################################
-
 echo
-echo "* * *   Cleaning...   * * *"
+echo "* * * * * * * * * * * *"
+echo "* * *   Cleaning   * * *"
+echo "* * * * * * * * * * * *"
+echo
+
 sudo apt autoclean
-echo "press  [ENTER]  to continue"
-read continue
-
-###################################
-# Finish!
-###################################
 
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo "* * *   Finish! All done!   * * *"
+echo "* * * * * * * * * * * * * * * * *"
 echo
