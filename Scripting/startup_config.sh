@@ -42,8 +42,6 @@ echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/
 cd /opt
 sudo wget http://www.webmin.com/jcameron-key.asc
 sudo apt-key add jcameron-key.asc
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
@@ -51,9 +49,8 @@ echo "* * *   Updating and upgrading   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
-sudo apt update && sudo apt upgrade -y
-echo "press  [ENTER]  to continue"
-read continue
+# sudo apt update && sudo apt upgrade -y
+sudo apt update
 
 echo
 echo "* * * * * * * * * * * * * * * * * * * * *"
@@ -62,8 +59,6 @@ echo "* * * * * * * * * * * * * * * * * * * * *"
 echo
 
 sudo apt purge libreoffice* -y
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
@@ -75,8 +70,6 @@ echo
 echo "-> Installing WPS Office"
 sudo dpkg --install $ORIGIN/wps-office_10.1.0.5707~a21_amd64.deb
 sudo unzip $ORIGIN/es_ES.zip -d /opt/kingsoft/wps-office/office6/dicts
-echo "press  [ENTER]  to continue"
-read continue
 
 ### web tools
 echo "-> Installing LAMP"
@@ -84,30 +77,30 @@ sudo apt install apache2 -y
 sudo apt install mysql-server -y
 sudo apt install phpmyadmin -y
 sudo mysql_secure_installation
+echo "<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHP Info</title>
+    </head>
+    <body>
+        <?php echo phpinfo(); ?>
+    </body>
+</html>" >> /var/www/html/index.php
 sudo chown -R mcervantes:mcervantes /var/www/html
 ln -s /var/www/html ~/Desktop
-echo "press  [ENTER]  to continue"
-read continue
 
 ## Webmin
 echo "-> Installing Webmin"
 sudo apt install webmin -y
-echo "press  [ENTER]  to continue"
-read continue
 
 ## MyApps
 echo "-> Installing MyApps"
 sudo apt install gnome-control-center gnome-online-accounts -y
 sudo apt install docky gimp gparted screenfetch -y
-echo "press  [ENTER]  to continue"
-read continue
 
 ### git
 echo "-> Installing Git"
 sudo apt install git -y
-echo
-echo "* * *   G I T   I N F O   * * *"
-echo
 git config --global user.name "Martin Cervantes"
 git config --global user.email "cervantes.martine@gmail.com"
 git --version
@@ -125,8 +118,6 @@ cat ~/.ssh/id_rsa.pub
 echo
 echo "Add the new SSH key to your GitHub account"
 echo
-echo "press  [ENTER]  to continue"
-read continue
 
 ## developing
 ### compilers and IDEs
@@ -135,8 +126,6 @@ echo
 echo "* * *   A T O M :D   * * *"
 echo
 sudo dpkg --install $ORIGIN/atom-amd64.deb
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * *   NeatBeans   * * *"
@@ -145,15 +134,11 @@ cd $ORIGIN
 sudo ./netbeans-8.2-linux.sh
 mkdir ~/misProgramas/NetBeansProjects
 echo "StartupWMClass=NetBeans IDE 8.2" \ | sudo tee -a /usr/share/applications/netbeans-8.2.desktop
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * *   JavaFX SceneBuilder   * * *"
 echo
 sudo dpkg --install $ORIGIN/javafx_scenebuilder-2_0-linux-x64.deb
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * *   Android Studio   * * *"
@@ -163,8 +148,6 @@ mkdir ~/misProgramas/SDK
 mkdir ~/misProgramas/Android
 cd /opt/android-studio/bin
 sudo ./studio.sh
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * *   Arduino Studio   * * *"
@@ -174,8 +157,6 @@ mkdir ~/misProgramas/Arduino
 cd /opt/arduino-1.8.5
 ./install.sh
 mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.5
-echo "press  [ENTER]  to continue"
-read continue
 
 echo
 echo "* * * * * * * * * * * *"
