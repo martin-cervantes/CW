@@ -2,7 +2,7 @@
 number=$1
 res=$number%2
 
-if [[ $res -eq 0 ]]
+if [ $res -eq 0 ]
 then
   echo "Even"
 else
