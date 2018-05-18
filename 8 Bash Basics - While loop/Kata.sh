@@ -1,10 +1,8 @@
 #!/bin/bash
-countToTwenty()
-{
-    for (( i=1; i<=20; i++ ))
-    do
-        echo "Count: $i"
-    done
-}
+i=1
 
-countToTwenty
+while [ $i -le 20 ]
+do
+    echo "Count: $i"
+    i=$((i+1))
+done

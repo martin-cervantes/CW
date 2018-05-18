@@ -10,8 +10,8 @@ then
 else
     while [ $distance > $thickness ]
     do
-        thickness =`expr $thickness \* 2`
-        times =`expr $times + 1`
+        thickness=$((thickness*2))
+        times+=1
     done
 
     echo $times
