@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class Kata
     {
-        public static int Number(List<int[]> peopleListInOut)
+        public static int countPassengers(List<int[]> peopleListInOut)
         {
             int still = 0;
 
-            foreach(int[] inOut in peopleListInOut)
+            foreach(int[] stops in peopleListInOut)
             {
-                still += inOut[0];
-                still -= inOut[1];
+                still += stops[0];
+                still -= stops[1];
             }
 
             return still;
