@@ -3,8 +3,6 @@ import string
 def accum(s):
     s = list(s)
     cadena = ""
-    for x in range(0, len(s) + 1):
-        print(x)
 
     for i in range(0, len(s) + 1):
         if i != 0:
@@ -17,5 +15,3 @@ def accum(s):
                 cadena += s[i].lower()
 
     return cadena
-
-print(accum("aHguytT"))

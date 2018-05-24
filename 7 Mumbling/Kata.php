@@ -1,7 +1,7 @@
 function accum($s)
 {
     $s = str_split($s);
-	  $cadena = "";
+	$cadena = "";
 
     for($i = 0; $i < sizeof($s); $i++)
     {
