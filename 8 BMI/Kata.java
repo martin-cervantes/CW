@@ -1,4 +1,4 @@
-public class Calculate
+public class Kata
 {
     public static String bmi(double weight, double height)
     {

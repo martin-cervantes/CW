@@ -1,4 +1,4 @@
-class Kata
+public class Kata
 {
     public static double FindAverage(double[] array)
     {

@@ -1,4 +1,4 @@
-public static class Kata
+public class Kata
 {
     public static double basicOp(char op, double val1, double val2)
     {
