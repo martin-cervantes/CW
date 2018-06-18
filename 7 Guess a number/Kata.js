@@ -1,8 +1,8 @@
 function Guess(number)
 {
-    var secretNumber = Math.floor((Math.random() * 10) + 1);
+    let secretNumber = Math.floor((Math.random() * 10) + 1);
 
-    var guess = Number(prompt("Guess a number"));
+    let guess = Number(prompt("Guess a number"));
 
     if(guess === secretNumber)
         alert("You got it right!!");

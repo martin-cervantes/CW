@@ -1,6 +1,6 @@
 function while_if()
 {
-    var count = 0;
+    let count = 0;
 
     if(count < 5)
       Console.log("Hello, I am an if statement and count is" + count);

@@ -1,8 +1,8 @@
 function repeatStr (n, s)
 {
-    var cadena = "";
+    let cadena = "";
 
-    for(var i=1; i<=n; i++)
+    for(let i=1; i<=n; i++)
         cadena += s;
 
     return cadena;

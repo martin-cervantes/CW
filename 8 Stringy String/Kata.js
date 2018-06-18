@@ -1,8 +1,8 @@
 function stringy(size)
 {
-    var str = "";
+    let str = "";
 
-    for(var i = 1; i <= size; i++)
+    for(let i = 1; i <= size; i++)
         if(i % 2 == 0)
             str += "0";
         else

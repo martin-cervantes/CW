@@ -1,8 +1,8 @@
-var number = function(peopleListInOut)
+let number = function(peopleListInOut)
 {
-    var still = 0;
+    let still = 0;
 
-    for(var stops of peopleListInOut)
+    for(let stops of peopleListInOut)
     {
         still += stops[0];
         still -= stops[1];

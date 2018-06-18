@@ -1,7 +1,7 @@
 function foldTo(distance)
 {
-    var times = 0;
-    var thickness = 0.0001;
+    let times = 0;
+    let thickness = 0.0001;
 
     if(distance <= 0)
         return null;

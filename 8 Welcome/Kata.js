@@ -1,6 +1,6 @@
 function greet(language)
 {
-    var	response = "";
+    let	response = "";
 
     switch(language)
     {

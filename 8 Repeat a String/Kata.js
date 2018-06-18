@@ -1,10 +1,10 @@
 function repeatIt (str, n)
 {
-    var cadena = "";
+    let cadena = "";
 
     if (typeof str === 'string' || str instanceof String)
     {
-        for(var i = 1; i <= n; i++)
+        for(let i = 1; i <= n; i++)
             cadena += str;
     }
     else

@@ -1,8 +1,8 @@
 function factorial(num)
 {
-    var result = 1;
+    let result = 1;
 
-    for(var i = 2; i <= num; i++)
+    for(let i = 2; i <= num; i++)
         result *= i;
 
     return result;

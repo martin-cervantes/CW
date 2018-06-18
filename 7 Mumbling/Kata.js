@@ -1,14 +1,14 @@
 function accum(s)
 {
     s = s.split('');
-	var cadena = "";
+	let cadena = "";
 
-    for(var i = 0; i < s.length; i++)
+    for(let i = 0; i < s.length; i++)
     {
         if(i != 0)
             cadena += "-";
 
-        for(var j = 0; j <= i; j++)
+        for(let j = 0; j <= i; j++)
             if(j == 0)
                 cadena += s[i].toUpperCase();
             else

@@ -1,6 +1,6 @@
 function kababToSnake(str)
 {
-    var newStr = str.replace(/-/, "_");
+    let newStr = str.replace(/-/, "_");
 
     return newStr;
 }

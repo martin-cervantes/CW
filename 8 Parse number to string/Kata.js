@@ -1,2 +1,2 @@
-var num = 123;
-var a = num.toString();
+let num = 123;
+let a = num.toString();

@@ -1,6 +1,6 @@
 function  calculateAge(birth, count)
 {
-    var year = 0;
+    let year = 0;
 
     if(count == birth)
         return "You were born this very year!";
