@@ -59,6 +59,7 @@ echo "* * * * * * * * * * * * * * * * * * * * *"
 echo
 
 sudo apt purge libreoffice* -y
+sudo apt purge openoffice* -y
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
@@ -76,6 +77,7 @@ echo "-> Installing LAMP"
 sudo apt install apache2 -y
 sudo apt install mysql-server -y
 sudo apt install phpmyadmin -y
+sudo apt install nodejs -y
 sudo mysql_secure_installation
 echo "<!DOCTYPE html>
 <html>
@@ -114,7 +116,10 @@ ssh-add ~/.ssh/id_rsa
 echo
 echo "* * *   R S A   K E Y   * * *"
 echo
-cat ~/.ssh/id_rsa.pub
+sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+echo
+echo "The SSH key was copied to the clipboard."
 echo
 echo "Add the new SSH key to your GitHub account"
 echo
