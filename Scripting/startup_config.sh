@@ -43,6 +43,9 @@ cd /opt
 sudo wget http://www.webmin.com/jcameron-key.asc
 sudo apt-key add jcameron-key.asc
 
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
 echo "* * *   Updating and upgrading   * * *"
@@ -69,7 +72,7 @@ echo
 
 ### wps-office
 echo "-> Installing WPS Office"
-sudo dpkg --install $ORIGIN/wps-office_10.1.0.5707~a21_amd64.deb
+sudo dpkg --install $ORIGIN/wps-office_10.1.0.6757_amd64.deb
 sudo unzip $ORIGIN/es_ES.zip -d /opt/kingsoft/wps-office/office6/dicts
 
 ### web tools
@@ -128,6 +131,12 @@ echo
 ### compilers and IDEs
 
 echo
+echo "* * *   G O O G L E   C H R O M E   * * *"
+echo
+sudo apt install google-chrome-stable
+sudo apt install firefox
+
+echo
 echo "* * *   A T O M :D   * * *"
 echo
 sudo dpkg --install $ORIGIN/atom-amd64.deb
@@ -148,7 +157,7 @@ sudo dpkg --install $ORIGIN/javafx_scenebuilder-2_0-linux-x64.deb
 echo
 echo "* * *   Android Studio   * * *"
 echo
-sudo unzip $ORIGIN/android-studio-ide-171.4443003-linux.zip -d /opt
+sudo unzip $ORIGIN/android-studio-ide-181.5056338-linux.zip -d /opt
 mkdir ~/misProgramas/SDK
 mkdir ~/misProgramas/Android
 cd /opt/android-studio/bin
@@ -157,11 +166,11 @@ sudo ./studio.sh
 echo
 echo "* * *   Arduino Studio   * * *"
 echo
-sudo tar -xf $ORIGIN/arduino-1.8.5-linux64.tar.xz -C /opt
+sudo tar -xf $ORIGIN/arduino-1.8.7-linux64.tar.xz -C /opt
 mkdir ~/misProgramas/Arduino
-cd /opt/arduino-1.8.5
+cd /opt/arduino-1.8.7
 ./install.sh
-mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.5
+mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.7
 
 echo
 echo "* * * * * * * * * * * *"
