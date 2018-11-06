@@ -171,6 +171,7 @@ mkdir ~/misProgramas/Arduino
 cd /opt/arduino-1.8.7
 ./install.sh
 mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.7
+sudo chmod a+rw /dev/ttyACM0
 
 echo
 echo "* * * * * * * * * * * *"
