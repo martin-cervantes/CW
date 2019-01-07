@@ -70,9 +70,17 @@ echo "* * *   Programs Installation   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
+## Wine - Windows Emulator
+echo "Wine -- Windows Emulator"
+sudo apt install wine winetricks
+
+### Media Codecs
+echo "Media Codecs"
+sudo apt install ubuntu-restricted-extras
+
 ### wps-office
 echo "-> Installing WPS Office"
-sudo dpkg --install $ORIGIN/wps-office_10.1.0.6757_amd64.deb
+sudo dpkg --install $ORIGIN/wps-office_*_amd64.deb
 sudo unzip $ORIGIN/es_ES.zip -d /opt/kingsoft/wps-office/office6/dicts
 
 ### web tools
@@ -100,6 +108,7 @@ sudo apt install webmin -y
 
 ## MyApps
 echo "-> Installing MyApps"
+### sudo apt install unrar zip unzip p7zip-full p7zip-rar rar
 sudo apt install gnome-control-center gnome-online-accounts -y
 sudo apt install docky gimp gparted screenfetch -y
 
@@ -137,9 +146,21 @@ sudo apt install google-chrome-stable
 sudo apt install firefox
 
 echo
+echo "* * *   VNC-Viewer   * * *"
+echo
+sudo dpkg --install $ORIGIN/VNC-Viewer-*-Linux-x64.deb
+
+echo
 echo "* * *   A T O M :D   * * *"
 echo
 sudo dpkg --install $ORIGIN/atom-amd64.deb
+
+echo
+echo "* * *   PyCharm   * * *"
+echo
+sudo tar -xzvf pycharm-*.tar.gz -C /opt
+cd /opt/pycharm-*/bin
+sudo sh ./pycharm.sh
 
 echo
 echo "* * *   NeatBeans   * * *"
@@ -157,7 +178,7 @@ sudo dpkg --install $ORIGIN/javafx_scenebuilder-2_0-linux-x64.deb
 echo
 echo "* * *   Android Studio   * * *"
 echo
-sudo unzip $ORIGIN/android-studio-ide-181.5056338-linux.zip -d /opt
+sudo unzip $ORIGIN/android-studio-ide-*-linux.zip -d /opt
 mkdir ~/misProgramas/SDK
 mkdir ~/misProgramas/Android
 cd /opt/android-studio/bin
@@ -166,11 +187,11 @@ sudo ./studio.sh
 echo
 echo "* * *   Arduino Studio   * * *"
 echo
-sudo tar -xf $ORIGIN/arduino-1.8.7-linux64.tar.xz -C /opt
+sudo tar -xzvf $ORIGIN/arduino-*-linux64.tar.xz -C /opt
 mkdir ~/misProgramas/Arduino
-cd /opt/arduino-1.8.7
+cd /opt/arduino-*
 ./install.sh
-mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-1.8.7
+mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-*
 sudo chmod a+rw /dev/ttyACM0
 
 echo
