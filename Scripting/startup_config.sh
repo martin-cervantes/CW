@@ -70,6 +70,11 @@ echo "* * *   Programs Installation   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
+
+## JDownloader
+echo "JDownloader"
+sudo sh ./JD2Setup_x64.sh
+
 ## Wine - Windows Emulator
 echo "Wine -- Windows Emulator"
 sudo apt install wine winetricks
@@ -158,7 +163,7 @@ sudo dpkg --install $ORIGIN/atom-amd64.deb
 echo
 echo "* * *   PyCharm   * * *"
 echo
-sudo tar -xzvf pycharm-*.tar.gz -C /opt
+sudo tar -xzvf $ORIGIN/pycharm-*.tar.gz -C /opt
 cd /opt/pycharm-*/bin
 sudo sh ./pycharm.sh
 
