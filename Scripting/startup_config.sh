@@ -72,20 +72,23 @@ echo
 
 ## JDownloader
 echo "JDownloader"
-sudo sh ./JD2Setup_x64.sh
+sudo sh JD2Setup_x64.sh
+
+## Multi Writer USB Installation
+echo "Multi Writer USB"
+sudo apt install gnome-multi-writer -y
 
 ## Wine - Windows Emulator
 echo "Wine -- Windows Emulator"
-sudo apt install wine winetricks
+sudo apt install wine-stable -y
 
 ### Media Codecs
 echo "Media Codecs"
-sudo apt install ubuntu-restricted-extras
+sudo apt install ubuntu-restricted-extras -y
 
 ### wps-office
 echo "-> Installing WPS Office"
-sudo dpkg --install $ORIGIN/wps-office_*_amd64.deb
-sudo unzip $ORIGIN/es_ES.zip -d /opt/kingsoft/wps-office/office6/dicts
+sudo apt install wps-office -y
 
 ### web tools
 echo "-> Installing LAMP"
@@ -102,7 +105,7 @@ echo "<!DOCTYPE html>
     <body>
         <?php echo phpinfo(); ?>
     </body>
-</html>" >> /var/www/html/index.php
+</html>" > /var/www/html/index.php
 sudo chown -R mcervantes:mcervantes /var/www/html
 ln -s /var/www/html ~/Desktop
 
@@ -112,7 +115,8 @@ sudo apt install webmin -y
 
 ## MyApps
 echo "-> Installing MyApps"
-sudo apt install unrar zip unzip p7zip-full p7zip-rar rar
+sudo apt install tree -y
+sudo apt install rar unrar zip unzip -y
 sudo apt install gnome-control-center gnome-online-accounts -y
 sudo apt install docky gimp gparted screenfetch -y
 
@@ -132,7 +136,7 @@ ssh-add ~/.ssh/id_rsa
 echo
 echo "* * *   R S A   K E Y   * * *"
 echo
-sudo apt-get install xclip
+sudo apt install xclip -y
 xclip -sel clip < ~/.ssh/id_rsa.pub
 echo
 echo "The SSH key was copied to the clipboard."
@@ -146,31 +150,31 @@ echo
 echo
 echo "* * *   G O O G L E   C H R O M E   * * *"
 echo
-sudo apt install google-chrome-stable
-sudo apt install firefox
+sudo apt install google-chrome-stable -y
+sudo apt install firefox -y
 
 echo
 echo "* * *   VNC-Viewer   * * *"
 echo
-sudo dpkg --install $ORIGIN/VNC-Viewer-*-Linux-x64.deb
+sudo apt install realvnc-vnc-viewer -y
 
 echo
 echo "* * *   A T O M :D   * * *"
 echo
-sudo dpkg --install $ORIGIN/atom-amd64.deb
+sudo apt install atom -y
 
 echo
 echo "* * *   PyCharm   * * *"
 echo
 sudo tar -xzvf $ORIGIN/pycharm-*.tar.gz -C /opt
 cd /opt/pycharm-*/bin
-sudo sh ./pycharm.sh
+sudo sh pycharm.sh
 
 echo
-echo "* * *   NeatBeans   * * *"
+echo "* * *   NetBeans   * * *"
 echo
 cd $ORIGIN
-sudo ./netbeans-8.2-linux.sh
+sudo sh netbeans-8.2-linux.sh
 mkdir ~/misProgramas/NetBeansProjects
 echo "StartupWMClass=NetBeans IDE 8.2" \ | sudo tee -a /usr/share/applications/netbeans-8.2.desktop
 
@@ -186,16 +190,13 @@ sudo unzip $ORIGIN/android-studio-ide-*-linux.zip -d /opt
 mkdir ~/misProgramas/SDK
 mkdir ~/misProgramas/Android
 cd /opt/android-studio/bin
-sudo ./studio.sh
+sudo sh studio.sh
 
 echo
 echo "* * *   Arduino Studio   * * *"
 echo
-sudo tar -xzvf $ORIGIN/arduino-*-linux64.tar.xz -C /opt
+sudo apt install atom -y
 mkdir ~/misProgramas/Arduino
-cd /opt/arduino-*
-./install.sh
-mv ~/Desktop/arduino-arduinoide.desktop /opt/arduino-*
 sudo chmod a+rw /dev/ttyACM0
 
 echo
