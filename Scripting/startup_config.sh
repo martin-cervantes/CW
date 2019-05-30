@@ -48,12 +48,11 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sud
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
-echo "* * *   Updating and upgrading   * * *"
+echo "* * *   Updating and Upgrading   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
-# sudo apt update && sudo apt upgrade -y
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 
 echo
 echo "* * * * * * * * * * * * * * * * * * * * *"
@@ -113,7 +112,7 @@ sudo apt install webmin -y
 
 ## MyApps
 echo "-> Installing MyApps"
-### sudo apt install unrar zip unzip p7zip-full p7zip-rar rar
+sudo apt install unrar zip unzip p7zip-full p7zip-rar rar
 sudo apt install gnome-control-center gnome-online-accounts -y
 sudo apt install docky gimp gparted screenfetch -y
 
