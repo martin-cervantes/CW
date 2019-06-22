@@ -95,7 +95,7 @@ echo "-> Installing LAMP"
 sudo apt install apache2 -y
 sudo apt install mysql-server -y
 sudo apt install phpmyadmin -y
-sudo apt install nodejs -y
+sudo apt install nodejs npm -y
 sudo mysql_secure_installation
 echo "<!DOCTYPE html>
 <html>
