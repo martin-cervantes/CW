@@ -6,13 +6,13 @@ echo "* * *   StartUp Configuration   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
+cd ..
 ORIGIN=$(pwd)
 
 gsettings set org.gnome.settings-daemon.plugins.power button-power 'suspend'
 gsettings get org.gnome.settings-daemon.plugins.power button-power
 
 mkdir /home/mcervantes/misProgramas
-chown -R mcervantes:mcervantes /home/mcervantes/misProgramas
 
 echo
 echo "* * * * * * * * * * * * * * * * * * * * * * * * * * *"
@@ -46,6 +46,9 @@ apt-key add jcameron-key.asc
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+
 add-apt-repository ppa:webupd8team/atom
 
 echo
@@ -71,9 +74,12 @@ echo "* * *   Programs Installation   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
-## JDownloader
-echo "JDownloader"
-sh JD2Setup_x64.sh
+
+## WPS Office
+echo "WPS Office"
+cd $ORIGIN
+apt install ./wps-office*amd64.deb -y
+mv ~/Desktop/wps-office* /opt/kingsoft/wps-office/
 
 ## Multi Writer USB Installation
 echo "Multi Writer USB"
@@ -87,9 +93,6 @@ apt install wine-stable -y
 echo "Media Codecs"
 apt install ubuntu-restricted-extras -y
 
-### wps-office
-echo "-> Installing WPS Office"
-apt install wps-office -y
 
 ### web tools
 echo "-> Installing LAMP"
@@ -108,7 +111,7 @@ echo "<!DOCTYPE html>
         <?php echo phpinfo(); ?>
     </body>
 </html>" >> /var/www/html/index.php
-chown -R mcervantes:mcervantes /var/www/html
+
 ln -s /var/www/html /home/mcervantes/Desktop
 
 ## Webmin
@@ -120,6 +123,10 @@ echo "-> Installing MyApps"
 apt install rar unrar zip unzip -y
 apt install gnome-control-center gnome-online-accounts -y
 apt install docky gimp gparted screenfetch -y
+apt install gnome-shell-pomodoro -y
+apt install gnome-mines -y
+apt install vlc -y
+apt install mame -y
 
 ### git
 echo "-> Installing Git"
@@ -128,22 +135,8 @@ git config --global user.name "Martin Cervantes"
 git config --global user.email "cervantes.martine@gmail.com"
 git --version
 git config --list
-echo
-echo "* * *   SSH-key and SSH-agent   * * *"
-echo
-ssh-keygen -t rsa -b 4096 -C "cervantes.martine@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add /home/mcervantes/.ssh/id_rsa
-echo
-echo "* * *   R S A   K E Y   * * *"
-echo
+
 apt-get install xclip -y
-xclip -sel clip < /home/mcervantes/.ssh/id_rsa.pub
-echo
-echo "The SSH key was copied to the clipboard."
-echo
-echo "Add the new SSH key to your GitHub account"
-echo
 
 
 ## developing
@@ -209,6 +202,10 @@ echo "* * * * * * * * * * * *"
 echo "* * *   Cleaning   * * *"
 echo "* * * * * * * * * * * *"
 echo
+
+chown -R mcervantes:mcervantes /opt
+chown -R mcervantes:mcervantes /var/www/html
+chown -R mcervantes:mcervantes /home/mcervantes/misProgramas
 
 apt autoclean
 

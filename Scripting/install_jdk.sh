@@ -6,6 +6,7 @@ echo
 
 sudo mkdir /opt/java
 
+cd ..
 sudo tar -xzvf jdk-*-linux-x64.tar.gz -C /opt/java
 
 echo "JAVA_HOME=/opt/java/jdk1.8.0_211
