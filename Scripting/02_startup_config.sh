@@ -47,9 +47,9 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 
-add-apt-repository ppa:webupd8team/atom
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
@@ -76,26 +76,26 @@ echo
 
 
 ## WPS Office
-echo "WPS Office"
+echo "===> WPS Office"
 cd $ORIGIN
 apt install ./wps-office*amd64.deb -y
 mv ~/Desktop/wps-office* /opt/kingsoft/wps-office/
 
 ## Multi Writer USB Installation
-echo "Multi Writer USB"
+echo "===> Multi Writer USB"
 apt install gnome-multi-writer -y
 
 ## Wine - Windows Emulator
-echo "Wine -- Windows Emulator"
-apt install wine-stable -y
+#echo "===> Wine -- Windows Emulator"
+#apt install wine-stable -y
 
 ### Media Codecs
-echo "Media Codecs"
+echo "===> Media Codecs"
 apt install ubuntu-restricted-extras -y
 
 
 ### web tools
-echo "-> Installing LAMP"
+echo "===>  Installing LAMP"
 apt install apache2 -y
 apt install mysql-server -y
 apt install phpmyadmin -y
@@ -115,22 +115,25 @@ echo "<!DOCTYPE html>
 ln -s /var/www/html /home/mcervantes/Desktop
 
 ## Webmin
-echo "-> Installing Webmin"
+echo "===> Installing Webmin"
 apt install webmin -y
 
 ## MyApps
-echo "-> Installing MyApps"
+echo "===> Installing MyApps"
 apt install rar unrar zip unzip -y
 apt install gnome-control-center gnome-online-accounts -y
 apt install docky gimp gparted screenfetch -y
 apt install gnome-shell-pomodoro -y
 apt install gnome-mines -y
 apt install vlc -y
-apt install mame -y
+apt install mame* joystick jstest-gtk -y
+cp -R roms ~/misProgramas/
+cp -R snapshots ~/misProgramas/
 
 ### git
-echo "-> Installing Git"
+echo "===> Installing Git"
 apt install git -y
+git config --global color.ui auto
 git config --global user.name "Martin Cervantes"
 git config --global user.email "cervantes.martine@gmail.com"
 git --version
@@ -158,7 +161,14 @@ apt install ./VNC-Viewer-*-Linux-x64.deb
 echo
 echo "* * *   A T O M :D   * * *"
 echo
-apt install atom -y
+apt install ./atom-amd64.deb -y
+
+echo
+echo "* * *   Arduino Studio   * * *"
+echo
+mkdir /home/mcervantes/misProgramas/Arduino
+apt install arduino -y
+chmod a+rw /dev/ttyACM0
 
 echo
 echo "* * *   PyCharm   * * *"
@@ -166,14 +176,6 @@ echo
 tar -xzvf $ORIGIN/pycharm-*.tar.gz -C /opt
 cd /opt/pycharm-*/bin
 sh pycharm.sh
-
-#echo
-#echo "* * *   NetBeans   * * *"
-#echo
-#cd $ORIGIN
-#sh netbeans-8.2-linux.sh
-#mkdir /home/mcervantes/misProgramas/NetBeansProjects
-#echo "StartupWMClass=NetBeans IDE 8.2" \ | tee -a /usr/share/applications/netbeans-8.2.desktop
 
 echo
 echo "* * *   JavaFX SceneBuilder   * * *"
@@ -190,12 +192,13 @@ tar -xzvf $ORIGIN/android-studio-ide-*-linux.tar.gz -C /opt
 cd /opt/android-studio/bin
 sh studio.sh
 
-echo
-echo "* * *   Arduino Studio   * * *"
-echo
-mkdir /home/mcervantes/misProgramas/Arduino
-apt install arduino -y
-chmod a+rw /dev/ttyACM0
+#echo
+#echo "* * *   NetBeans   * * *"
+#echo
+#cd $ORIGIN
+#sh netbeans-8.2-linux.sh
+#mkdir /home/mcervantes/misProgramas/NetBeansProjects
+#echo "StartupWMClass=NetBeans IDE 8.2" \ | tee -a /usr/share/applications/netbeans-8.2.desktop
 
 echo
 echo "* * * * * * * * * * * *"
