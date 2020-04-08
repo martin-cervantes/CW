@@ -100,7 +100,7 @@ apt install apache2 -y
 apt install mysql-server -y
 apt install phpmyadmin -y
 apt install nodejs npm -y
-apt install pip -y
+apt install python-pip -y
 apt install sqlite3 -y
 mysql_secure_installation
 echo "<!DOCTYPE html>
