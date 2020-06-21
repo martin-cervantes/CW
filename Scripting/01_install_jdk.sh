@@ -9,8 +9,8 @@ sudo mkdir /opt/java
 cd ..
 sudo tar -xzvf jdk-*-linux-x64.tar.gz -C /opt/java
 
-echo "JAVA_HOME=/opt/java/jdk1.8.0_211
-PATH=$PATH:$HOME/bin:/opt/java/jdk1.8.0_211/bin
+echo "JAVA_HOME=/opt/java/jdk1.8.0_241
+PATH=$PATH:$HOME/bin:/opt/java/jdk1.8.0_241/bin
 export JAVA_HOME
 export PATH" >> /etc/profile
 
@@ -20,12 +20,12 @@ echo
 echo "* * *   Configuring. . .   * * *"
 echo
 
-update-alternatives --install "/usr/bin/java" "java" "/opt/java/jdk1.8.0_211/bin/java" 1
-update-alternatives --install "/usr/bin/javac" "javac" "/opt/java/jdk1.8.0_211/bin/javac" 1
-update-alternatives --install "/usr/bin/javaws" "javaws" "/opt/java/jdk1.8.0_211/bin/javaws" 1
-# update-alternatives --set java /opt/java/jdk1.8.0_211/bin/java
-# update-alternatives --set javac /opt/java/jdk1.8.0_211/bin/javac
-# update-alternatives --set javaws /opt/java/jdk1.8.0_211/bin/javaws
+update-alternatives --install "/usr/bin/java" "java" "/opt/java/jdk1.8.0_241/bin/java" 1
+update-alternatives --install "/usr/bin/javac" "javac" "/opt/java/jdk1.8.0_241/bin/javac" 1
+update-alternatives --install "/usr/bin/javaws" "javaws" "/opt/java/jdk1.8.0_241/bin/javaws" 1
+# update-alternatives --set java /opt/java/jdk1.8.0_241/bin/java
+# update-alternatives --set javac /opt/java/jdk1.8.0_241/bin/javac
+# update-alternatives --set javaws /opt/java/jdk1.8.0_241/bin/javaws
 # update-alternatives --config java
 # update-alternatives --config javac
 # update-alternatives --config javaws

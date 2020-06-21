@@ -209,7 +209,12 @@ echo
 
 chown -R mcervantes:mcervantes /opt
 chown -R mcervantes:mcervantes /var/www/html
+chown -R mcervantes:mcervantes ~/Desktop/html
 chown -R mcervantes:mcervantes /home/mcervantes/misProgramas
+
+# SOLO PARA UBUNTU BUDGIE
+# ROTATION LOCK SCREEN
+# gsettings set org.gnome.settings-daemon.peripherals.touchscreen orientation-lock true
 
 apt autoclean
 

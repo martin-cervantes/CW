@@ -4,28 +4,42 @@ echo
 echo "* * *   Ruby Installation. . .   * * *"
 echo
 
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
-sudo apt install curl git nodejs gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
+sudo apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 
-sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-sudo echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
+source ~/.bashrc
 
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+type rbenv
 
+rbenv install
 
-rbenv -v
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+rbenv install -l
 
-rbenv install 2.6.5 --verbose
+rbenv install 2.6.6
 
+rbenv global 2.6.6
 
-rbenv global 2.6.5
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-ruby -v
+sudo apt update && sudo apt install --no-install-recommends yarn
+
+yarn --version
+
+gem install bundler
+
+gem install webpacker
+
+gem install rails
