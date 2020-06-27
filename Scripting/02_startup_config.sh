@@ -57,7 +57,7 @@ echo "* * *   Updating and Upgrading   * * *"
 echo "* * * * * * * * * * * * * * * * * * *"
 echo
 
-apt update && apt upgrade -y && apt autoremove -y
+sudo apt update && apt upgrade -y && apt autoremove -y
 
 echo
 echo "* * * * * * * * * * * * * * * * * * * * *"
@@ -65,8 +65,8 @@ echo "* * *   Removing Programs Not Used   * * *"
 echo "* * * * * * * * * * * * * * * * * * * * *"
 echo
 
-apt purge libreoffice* -y
-apt purge openoffice* -y
+sudo apt purge libreoffice* -y
+sudo apt purge openoffice* -y
 
 echo
 echo "* * * * * * * * * * * * * * * * * * *"
@@ -78,30 +78,30 @@ echo
 ## WPS Office
 echo "===> WPS Office"
 cd $ORIGIN
-apt install ./wps-office*amd64.deb -y
+sudo apt install ./wps-office*amd64.deb -y
 mv ~/Desktop/wps-office* /opt/kingsoft/wps-office/
 
 ## Multi Writer USB Installation
 echo "===> Multi Writer USB"
-apt install gnome-multi-writer -y
+sudo apt install gnome-multi-writer -y
 
 ## Wine - Windows Emulator
 #echo "===> Wine -- Windows Emulator"
-#apt install wine-stable -y
+#sudo apt install wine-stable -y
 
 ### Media Codecs
 echo "===> Media Codecs"
-apt install ubuntu-restricted-extras -y
+sudo apt install ubuntu-restricted-extras -y
 
 
 ### web tools
 echo "===>  Installing LAMP"
-apt install apache2 -y
-apt install mysql-server -y
-apt install phpmyadmin -y
-apt install nodejs npm -y
-apt install python-pip -y
-apt install sqlite3 -y
+sudo apt install apache2 -y
+sudo apt install mysql-server -y
+sudo apt install phpmyadmin -y
+sudo apt install nodejs npm -y
+sudo apt install python-pip -y
+sudo apt install sqlite3 -y
 mysql_secure_installation
 echo "<!DOCTYPE html>
 <html>
@@ -117,30 +117,30 @@ ln -s /var/www/html /home/mcervantes/Desktop
 
 ## Webmin
 echo "===> Installing Webmin"
-apt install webmin -y
+sudo apt install webmin -y
 
 ## MyApps
 echo "===> Installing MyApps"
-apt install rar unrar zip unzip -y
-apt install gnome-control-center gnome-online-accounts -y
-apt install docky gimp gparted screenfetch -y
-apt install gnome-shell-pomodoro -y
-apt install gnome-mines -y
-apt install vlc -y
-apt install mame* joystick jstest-gtk -y
+sudo apt install rar unrar zip unzip -y
+sudo apt install gnome-control-center gnome-online-accounts -y
+sudo apt install docky gimp gparted screenfetch -y
+sudo apt install gnome-shell-pomodoro -y
+sudo apt install gnome-mines -y
+sudo apt install vlc -y
+sudo apt install mame* joystick jstest-gtk -y
 cp -R roms ~/misProgramas/
 cp -R snapshots ~/misProgramas/
 
 ### git
 echo "===> Installing Git"
-apt install git -y
+sudo apt install git -y
 git config --global color.ui auto
 git config --global user.name "Martin Cervantes"
 git config --global user.email "cervantes.martine@gmail.com"
 git --version
 git config --list
 
-apt-get install xclip -y
+sudo apt install xclip -y
 
 
 ## developing
@@ -150,25 +150,25 @@ echo
 echo "* * *   G O O G L E   C H R O M E   * * *"
 echo
 
-apt install google-chrome-stable -y
-apt install firefox -y
+sudo apt install google-chrome-stable -y
+sudo apt install firefox -y
 
 echo
 echo "* * *   VNC-Viewer   * * *"
 echo
 cd $ORIGIN
-apt install ./VNC-Viewer-*-Linux-x64.deb
+sudo apt install ./VNC-Viewer-*-Linux-x64.deb
 
 echo
 echo "* * *   A T O M :D   * * *"
 echo
-apt install ./atom-amd64.deb -y
+sudo apt install ./atom-amd64.deb -y
 
 echo
 echo "* * *   Arduino Studio   * * *"
 echo
 mkdir /home/mcervantes/misProgramas/Arduino
-apt install arduino -y
+sudo apt install arduino -y
 chmod a+rw /dev/ttyACM0
 
 echo
@@ -182,7 +182,7 @@ echo
 echo "* * *   JavaFX SceneBuilder   * * *"
 echo
 cd $ORIGIN
-apt install ./javafx_scenebuilder-2_0-linux-x64.deb
+sudo apt install ./javafx_scenebuilder-2_0-linux-x64.deb
 
 echo
 echo "* * *   Android Studio   * * *"
@@ -207,16 +207,16 @@ echo "* * *   Cleaning   * * *"
 echo "* * * * * * * * * * * *"
 echo
 
-chown -R mcervantes:mcervantes /opt
-chown -R mcervantes:mcervantes /var/www/html
-chown -R mcervantes:mcervantes ~/Desktop/html
-chown -R mcervantes:mcervantes /home/mcervantes/misProgramas
+sudo chown -R mcervantes:mcervantes /opt
+sudo chown -R mcervantes:mcervantes /var/www/html
+sudo chown -R mcervantes:mcervantes ~/Desktop/html
+sudo chown -R mcervantes:mcervantes /home/mcervantes/misProgramas
 
 # SOLO PARA UBUNTU BUDGIE
 # ROTATION LOCK SCREEN
 # gsettings set org.gnome.settings-daemon.peripherals.touchscreen orientation-lock true
 
-apt autoclean
+sudo apt autoclean
 
 echo
 echo "* * * * * * * * * * * * * * * * *"

@@ -1,18 +1,22 @@
 echo
 echo "* * *   SSH-key and SSH-agent   * * *"
 echo
+
 ssh-keygen -t rsa -b 4096 -C "cervantes.martine@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add /home/mcervantes/.ssh/id_rsa
+
 echo
 echo "* * *   R S A   K E Y   * * *"
 echo
+
 xclip -sel clip < /home/mcervantes/.ssh/id_rsa.pub
 echo
 echo "The SSH key was copied to the clipboard."
 echo
 echo "Add the new SSH key to your GitHub account"
 echo
+
 read response
 
 ssh -T git@github.com

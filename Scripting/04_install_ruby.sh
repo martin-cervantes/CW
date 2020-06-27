@@ -26,9 +26,9 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 rbenv install -l
 
-rbenv install 2.6.6
+rbenv install 2.7.0
 
-rbenv global 2.6.6
+rbenv global 2.7.0
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
