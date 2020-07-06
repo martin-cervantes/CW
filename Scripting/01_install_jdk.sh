@@ -4,10 +4,10 @@ echo
 echo "* * *   JDK Installation. . .   * * *"
 echo
 
-sudo mkdir /opt/java
+mkdir /opt/java
 
 cd ..
-sudo tar -xzvf jdk-*-linux-x64.tar.gz -C /opt/java
+tar -xzvf jdk-*-linux-x64.tar.gz -C /opt/java
 
 echo "JAVA_HOME=/opt/java/jdk1.8.0_241
 PATH=$PATH:$HOME/bin:/opt/java/jdk1.8.0_241/bin

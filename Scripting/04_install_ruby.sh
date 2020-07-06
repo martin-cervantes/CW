@@ -4,11 +4,11 @@ echo
 echo "* * *   Ruby Installation. . .   * * *"
 echo
 
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
 
-sudo apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
+apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
@@ -30,13 +30,17 @@ rbenv install 2.7.0
 
 rbenv global 2.7.0
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-sudo apt update && sudo apt install --no-install-recommends yarn
+apt update && apt install --no-install-recommends yarn
 
 yarn --version
+
+apt install gem
+
+gem install bundle
 
 gem install bundler
 
