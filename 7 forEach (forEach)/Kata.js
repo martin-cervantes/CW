@@ -1,6 +1,6 @@
 function arrayIteration(numbers)
 {
-    numbers.forEach(function(number){
+    numbers.forEach(number => {
         if(number % 3 === 0)
         {
             console.log(number);
