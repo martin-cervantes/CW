@@ -4,7 +4,7 @@ function repeatStr($n, $str)
 
       for($i = 1; $i <= $n; $i++)
       {
-          $cadena = $cadena.$str;
+          $cadena .= $str;
       }
 
       return $cadena;

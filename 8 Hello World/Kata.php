@@ -1,7 +1,1 @@
-class Kata
-{
-    function main()
-    {
-        echo "Hello World!";
-    }
-}
+echo "Hello World!";

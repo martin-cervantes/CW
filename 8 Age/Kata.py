@@ -10,9 +10,9 @@ def Bar(age):
 def Age(age):
     if age < 0:
         print("Error")
-    else if age === 21:
+    else if age == 21:
         print("happy 21st birthday!!")
-    else if age % 2 !== 0:
+    else if age % 2 != 0:
         print("Your age is odd!!")
     else if age % Math.sqrt(age) == 0:
         print("Your age is a perfect square!!")

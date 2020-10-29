@@ -6,7 +6,7 @@ public class Kata13December
     {
         for (int i = (listOfNumbers.size() - 1); i >= 0; i--)
         {
-            if (listOfNumbers.get(i)%2 == 0)
+            if (listOfNumbers.get(i) % 2 == 0)
             {
                 listOfNumbers.remove(i);
             }

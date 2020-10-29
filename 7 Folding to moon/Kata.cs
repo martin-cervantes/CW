@@ -1,6 +1,6 @@
 public class Kata
 {
-    public static int? FoldTo(double distance)
+    public static int FoldTo(double distance)
     {
         int times = 0;
         float thickness = 0.0001f;

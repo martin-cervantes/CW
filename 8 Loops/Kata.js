@@ -12,16 +12,11 @@ function loops()
 	let counter = 10;
 
 	while(counter <= 40){
-		console.log(counter);
-		counter+=2;
+		if(counter % 2 === 0){
+			console.log(counter);
+		}
+		counter += 1;
 	}
-
-	// while(counter <= 40){
-	// 	if(counter % 2 === 0){
-	// 		console.log(counter);
-	// 	}
-	// 	counter+=1;
-	// }
 
 	console.log("PRINTING ALL ODD NUMBERS BETWEEN 300 AND 333");
 	let counter = 300;
@@ -30,7 +25,7 @@ function loops()
 		if(counter % 2 !== 0){
 			console.log(counter);
 		}
-		counter+=1;
+		counter += 1;
 	}
 
 
@@ -43,6 +38,6 @@ function loops()
 		if(counter % 5 === 0 && counter % 3 === 0){
 			console.log(counter);
 		}
-		counter+=1;
+		counter += 1;
 	}
 }

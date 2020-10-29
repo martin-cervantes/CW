@@ -1,4 +1,4 @@
-funtion Bar($age)
+function Bar($age)
 {
     if($age < 18)
         echo "Sorry, you cannot enter the venue";

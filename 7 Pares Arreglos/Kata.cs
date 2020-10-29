@@ -1,4 +1,3 @@
-
 public class Kata
 {
     int index = 0;
@@ -48,7 +47,7 @@ public class Kata
          Console.WriteLine(Arrays.ToString(C));
     }
 
-    public static void main(String[] args)
+    public static void main(string[] args)
     {
         Kata obj = new Kata();
 

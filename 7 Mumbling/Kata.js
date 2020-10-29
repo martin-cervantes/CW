@@ -1,7 +1,7 @@
 function accum(s)
 {
     s = s.split('');
-	let cadena = "";
+	  let cadena = "";
 
     for(let i = 0; i < s.length; i++)
     {

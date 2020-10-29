@@ -5,6 +5,6 @@ public static class Kata
         if(name == "Johnny")
             return "Hello, my love!";
         else
-            return "Hello, " + name + "!";
+            return $"Hello, {name}!";
     }
 }

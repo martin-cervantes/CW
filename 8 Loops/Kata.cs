@@ -14,16 +14,11 @@ public class Kata
     	int counter = 10;
 
     	while(counter <= 40){
-    		Console.WriteLine(counter);
-    		counter+=2;
+    		if(counter % 2 == 0){
+    			Console.WriteLine(counter);
+    		}
+    		counter += 1;
     	}
-
-    	// while(counter <= 40){
-    	// 	if(counter % 2 == 0){
-    	// 		Console.WriteLine(counter);
-    	// 	}
-    	// 	counter+=1;
-    	// }
 
     	Console.WriteLine("PRINTING ALL ODD NUMBERS BETWEEN 300 AND 333");
     	int counter = 300;
@@ -32,7 +27,7 @@ public class Kata
     		if(counter % 2 != 0){
     			Console.WriteLine(counter);
     		}
-    		counter+=1;
+    		counter += 1;
     	}
 
 

@@ -1,6 +1,6 @@
 public class Kata
 {
-    public static void Main(String[] Args)
+    public static void Main(string[] args)
     {
         Console.WriteLine("Hello World!");
     }

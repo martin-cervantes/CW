@@ -14,16 +14,11 @@ class Kata
     	int counter = 10;
 
     	while(counter <= 40){
-    		System.out.println(counter);
-    		counter+=2;
+    		if(counter % 2 == 0){
+    			System.out.println(counter);
+    		}
+    		counter += 1;
     	}
-
-    	// while(counter <= 40){
-    	// 	if(counter % 2 == 0){
-    	// 		System.out.println(counter);
-    	// 	}
-    	// 	counter+=1;
-    	// }
 
     	System.out.println("PRINTING ALL ODD NUMBERS BETWEEN 300 AND 333");
     	int counter = 300;
@@ -32,7 +27,7 @@ class Kata
     		if(counter % 2 != 0){
     			System.out.println(counter);
     		}
-    		counter+=1;
+    		counter += 1;
     	}
 
 
@@ -45,7 +40,7 @@ class Kata
     		if(counter % 5 == 0 && counter % 3 == 0){
     			System.out.println(counter);
     		}
-    		counter+=1;
+    		counter += 1;
     	}
     }
 }

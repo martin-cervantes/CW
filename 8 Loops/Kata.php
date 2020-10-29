@@ -12,16 +12,11 @@ function loops()
 	$counter = 10;
 
 	while($counter <= 40){
-		echo $counter;
-		$counter+=2;
+		if($counter % 2 == 0){
+		  echo $counter;
+		}
+		$counter += 1;
 	}
-
-	// while($counter <= 40){
-	// 	if($counter % 2 == 0){
-	// 		echo $counter;
-	// 	}
-	// 	$counter+=1;
-	// }
 
 	echo "PRINTING ALL ODD NUMBERS BETWEEN 300 AND 333";
 	$counter = 300;

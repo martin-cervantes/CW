@@ -5,7 +5,7 @@ cadena=""
 
 for (( i=1; i<=$repeat; i++ ))
 do
-    cadena+=$string
+    cadena += $string
 done
 
 echo $cadena

@@ -4,6 +4,6 @@ public static class Kata
     {
         if(bonus) salary = salary * 10;
 
-        return "$"+salary;
+        return "$" + salary;
     }
 }

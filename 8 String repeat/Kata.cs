@@ -4,7 +4,7 @@ public static class Kata
     {
         String cadena = "";
 
-        for(int i=1; i<=n; i++)
+        for(int i = 1; i <= n; i++)
             cadena += s;
 
         return cadena;

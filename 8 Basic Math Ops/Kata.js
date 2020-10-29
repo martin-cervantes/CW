@@ -1,13 +1,13 @@
 function basicOp(operation, value1, value2)
 {
-    if(operation == '+')
+    if(operation === '+')
         return value1 + value2;
-    if(operation == '-')
+    if(operation === '-')
         return value1 - value2;
-    if(operation == '*')
+    if(operation === '*')
         return value1 * value2;
-    if(operation == '/')
+    if(operation === '/')
         return value1 / value2;
-    else 
+    else
         return 0;
 }

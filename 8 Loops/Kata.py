@@ -10,17 +10,12 @@ def loops():
 	print("PRINTING ALL EVEN BETWEEN 10 AND 40")
 	counter = 10
 
-	while counter <= 40:
-		print(counter)
-		counter += 2
+	while counter <= 40
+	  	if counter % 2 == 0
+			print(counter)
 
+	counter +=1
 
-	#  while counter <= 40
-	#  	if counter % 2 == 0
-	#  		print(counter)
-	#
-	#  	counter +=1
-	#
 
 	print("PRINTING ALL ODD NUMBERS BETWEEN 300 AND 333")
 	counter = 300
@@ -30,10 +25,6 @@ def loops():
 			print(counter)
 
 		counter+=1
-
-
-
-
 
 	print("PRINTING ALL NUMBERS DIVISIBLE BY 5 AND 3 BETWEEN 5 AND 50")
 	counter = 5
