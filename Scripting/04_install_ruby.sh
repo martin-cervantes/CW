@@ -53,4 +53,9 @@ apt install postgresql postgresql-contrib libpq-dev
 
 gem install pg
 
--u postgres createuser --interactive
+echo
+echo "* * * * * * * * * * * * * * * * * * * * * * * * * *"
+echo
+echo "Don't forget to create a new user for Postgresql Server"
+echo
+echo "sudo -u postgres createuser --interactive"
