@@ -158,7 +158,7 @@ apt install xclip -y
 ### compilers and IDEs
 
 echo
-echo "* * *   G O O G L E   C H R O M E   * * *"
+echo "* * *   C H R O M I U M   * * *"
 echo
 
 apt install chromium-browser -y
@@ -169,6 +169,12 @@ echo "* * *   Zoom   * * *"
 echo
 cd $ORIGIN
 apt install ./zoom_amd64.deb -y
+
+echo
+echo "* * *   GitKraken   * * *"
+echo
+cd $ORIGIN
+apt install ./gitkraken-amd64.deb -y
 
 echo
 echo "* * *   VNC-Viewer   * * *"

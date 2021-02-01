@@ -4,39 +4,28 @@ echo
 echo "* * *   Ruby Installation. . .   * * *"
 echo
 
-apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
-curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
+apt install gcc g++ make curl -y
 
-apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+apt-get install yarn -y
 
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+yarn --version
 
-source ~/.bashrc
+apt install dirmngr apt-transport-https lsb-release ca-certificates -y
 
-type rbenv
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
-rbenv install
+apt install nodejs
 
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-rbenv install -l
+apt install rbenv
 
 rbenv install 2.7.0
 
 rbenv global 2.7.0
-
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
-apt update && apt install --no-install-recommends yarn
-
-yarn --version
 
 apt install gem
 
@@ -47,3 +36,21 @@ gem install bundler
 gem install webpacker
 
 gem install rails
+
+gem install hirb
+
+echo "if ENV['RAILS_ENV']
+  require 'rubygems'
+  require 'hirb'
+  require 'active_record'
+  Hirb.enable
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end" >> ~/.irbrc
+
+apt install postgresql postgresql-contrib libpq-dev
+
+/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
+
+gem install pg
+
+-u postgres createuser --interactive
